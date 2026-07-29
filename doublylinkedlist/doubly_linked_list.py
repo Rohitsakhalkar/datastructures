@@ -112,6 +112,16 @@ class DoublyLinkedList:
       return self._get_node(key).value  
    
    def __delitem__(self, key: int) -> None:
+      """
+      deletes an item of the based on the key
+      Args...
+         key-> index of the value to be deleted
+      Raises...
+         IndexError:
+            if linked list is empty
+                     or
+            index is greater then size
+      """
       if self.head is None:
          raise IndexError("out of bound")
       if key < 0:
@@ -297,6 +307,11 @@ class DoublyLinkedList:
       self._size += 1
       
    def prepend(self, value: Any)-> None:
+       """
+       Appends the value to the head of the doubly linked list
+             Args... 
+                 value -> to append a value to the linked list 
+       """
        current = Node(value)
        if self.head is None:
            self.head = current

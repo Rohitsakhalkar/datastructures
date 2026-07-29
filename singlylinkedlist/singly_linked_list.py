@@ -10,18 +10,39 @@ class SinglyLinkedList:
           self.tail: Node | None = None
      
      def __len__(self)-> int:
+          """
+          returns the size of node
+          """
           return self._size
      
      def __str__(self)-> str:
+          """
+          returns a string of values
+          """
           return f"[{" , ".join(str(value)for value in self)}]"
      
      def __repr__(self)-> str:
+          """
+          returns a string of object info
+          """
           return f"object: {self.__class__.__name__}({[ele for ele in self]})"
 
      def __bool__(self)-> bool:
+          """
+          returns true if the linked list has nodes
+                         or
+          returns false 
+          """
           return self._size > 0
      
      def __eq__(self, other: Node)-> bool:
+          """
+          Args...
+               other-> object of another linked list
+          returns true if two object are equal or same
+                         or
+          returns false 
+          """
           if self is other:
                return True
           if self._size == len(other):
@@ -34,6 +55,13 @@ class SinglyLinkedList:
           return False
 
      def __reversed__(self)-> Iterator[Any]:
+          """
+          returns the reversed linked list 
+          doesn't mutate values of the linked list
+          Raises...
+               IndexError:
+                    if linked list is empty
+          """
           if self.head is None:
                raise IndexError("linked list is empty")
           if self.head is self.tail:
@@ -48,6 +76,16 @@ class SinglyLinkedList:
                yield stack.pop()
 
      def __getitem__(self, key: int)-> Any:
+          """
+          Args...
+               key-> integer index of the value
+          returns the value from the node based on the key
+          Raises...
+               IndexError:
+                    if linked list is empty
+                              or
+                    index/key is greater then the size of linked list
+          """
           if self.head is None:
                raise IndexError("list is empty")
           if key < 0:
@@ -62,6 +100,18 @@ class SinglyLinkedList:
                return self._get_node(key).next.value 
      
      def __setitem__(self, key: int, value: Any)-> None:
+          """
+          inserts a value on the existing index of  linked list 
+          Args...
+               key-> index where the value is to be inserted
+               value-> value to be inserted
+          Raises:
+               IndexError:
+                    if no node is present
+                              or
+                    key is greater then the length of linked list
+
+          """
           newNode = Node(value)
           if self.head is None:
                raise IndexError("list is empty")
@@ -99,6 +149,16 @@ class SinglyLinkedList:
                return
 
      def __delitem__(self, key: int)-> None:
+          """
+          deletes an item of the based on the key
+          Args...
+               key-> index of the value to be deleted
+          Raises...
+               IndexError:
+                    if linked list is empty
+                              or
+                    index is greater then size
+          """
           if self.head is None:
                raise IndexError("list is empty")
           if key < 0:
@@ -135,6 +195,17 @@ class SinglyLinkedList:
                return
 
      def __contains__(self, value: Any)-> bool:
+          """
+          takes a value and check if value is present in linked list 
+          Args...
+               value-> takes a value
+          returns True if value is present 
+                         or 
+          returns False
+          Raises...
+               IndexError:
+                    if linked list is empty
+          """
           if self.head is None:
                raise IndexError("list is empty")
           if self.head.value == value:
@@ -148,10 +219,23 @@ class SinglyLinkedList:
                return False
 
      def __iter__(self)-> Iterator[Any]:
+          """
+          used to iter through a linked list
+          """
           return self.iter_forward()
      
      def _get_node(self,key: int)-> Node:
-          # returns the previous node that you want
+          """
+          helper function use to get a node
+          Args...
+               key -> takes an integer value as key/index
+          returns a key-1 node 
+          Raises:
+               IndexError:
+                    if list is empty
+                         or
+                    if key is greater than the length of linked list     
+          """
           if self.head is None:
                raise IndexError("list is empty")
           if key < 0:
@@ -172,6 +256,14 @@ class SinglyLinkedList:
                     current = current.next
      
      def iter_forward(self)-> Iterator[Any]:
+          """
+          Iterate over the linked list from head to tail.
+          Yields:
+               The value of each node.
+          Raises:
+               ValueError:
+                    If the linked list is empty.
+          """
           if self.head is None:
                raise IndexError("list is empty")
           else:
@@ -181,6 +273,11 @@ class SinglyLinkedList:
                     current = current.next
 
      def append(self,value: Any)-> None:
+          """
+          Appending the value to the last node of the doubly linked list
+          Args... 
+               value -> to append a value to the linked list 
+          """
           newNode = Node(value)
           if self.head is None:
                self.head = newNode
@@ -191,6 +288,17 @@ class SinglyLinkedList:
           self._size += 1
      
      def remove(self,value: Any)-> bool:
+               """
+               use to remove an value from linked list
+               Args...
+                    value-> value to be deleted
+               returns True if element is deleted/removed
+               returns False if element is Not deleted/removed
+               Raises:
+                    IndexError:
+                         if linked list is empty
+               
+               """
                if self.head is None:
                     raise IndexError("list is empty")
                if self.head is self.tail and self.head.value == value:
@@ -218,6 +326,15 @@ class SinglyLinkedList:
                return False
      
      def reverse(self)-> Iterator[Any]:
+          """
+          reverses the linked list mutates the whole linked list
+          Yield...
+               returns a value 
+          Raises...
+               IndexError:
+                    if linked list is Empty
+           
+          """
           if self.head is None:
                raise IndexError("linked list is empty")
           if self.head is self.tail:
@@ -240,6 +357,9 @@ class SinglyLinkedList:
                newnode = newnode.next
                          
      def clear(self)-> None:
+          """
+          clears all the linked list
+          """
           self.head = None
           self.tail = None
           self._size = 0
