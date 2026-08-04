@@ -5,12 +5,14 @@ A python package implementing common data structures from scratch for learning a
 ## Features
 - Doubly Linked List
 - Singly Linked List
+- Stack
+- Queue
 - Pythonic implementation
 - Iterator support
-- Reverse iteration
-- Indexing
-- Insert
-- Delete
+- Reverse iteration only for linked lists
+- Indexing only for linked lists
+- Insert at an index only for linked lists
+- Delete from an index only for linked lists
 - Append
 - Remove
 
@@ -56,6 +58,8 @@ datastructure/
 |
 |__ doublylinkedlist/
 |__ singlylinkedlist/
+|__ stack/
+|__ queue/
 |__ tests/
 |__ .venv/
 |__ requirements.txt
