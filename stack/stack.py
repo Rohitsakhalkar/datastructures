@@ -4,9 +4,9 @@ from typing import Any, Iterator
 class Stack:
 
     def __init__(self)-> None:
-        self.top = None
-        self._max = None #optional depends on user
-        self._size = 0
+        self.top: Node | None = None
+        self._max: int  = None #optional depends on user
+        self._size: int = 0
 
     def __iter__(self)-> Iterator[Any]:
         """
