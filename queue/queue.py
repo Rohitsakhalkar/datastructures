@@ -10,9 +10,20 @@ class Queue:
         self._front: Node | None = None
 
     def __len__(self)-> int:
+        """
+        Returns the length of the queue
+        """
         return self._size
 
     def __iter__(self)-> Iterator[Any]:
+        """
+        Iterates over the queue fromn front to rear
+        Raise:
+            IndexError:
+                queue underflow
+        Yield:
+             returns the value of the node 
+        """
         if self._rear is None:
             raise IndexError("queue underflow")
         else:
@@ -22,27 +33,65 @@ class Queue:
                 current = current.next
 
     def __bool__(self):
+        """
+        Returns true if there is an element present in queue
+                            or 
+        Returns false if there is no element present 
+        """
         return self._size >= 0
 
     def __str__(self)-> str:
+        """
+        Returns a string containting values of queue from front to rear
+        """
         return f"[{",".join(str(value) for value in self)}]"
 
     def __repr__(self)-> str:
+        """
+        Returns a string containing values of queue from front to rear
+        """
         return f"Queue(front to bottom)->[{",".join(str(value) for value in self)}]"
 
     def is_empty(self)-> bool:
+        """
+        Returns a true if queue is empty
+                     or
+        Returns false
+
+        """
         return self._size <= 0
 
     def is_full(self)-> bool:
+        """
+        Returns true if queue is full only if you define _max
+                            or
+        Returns false 
+        note: only works if you define _max 
+        """
         return self._size == self._max
 
     def front(self)-> Any:
+        """
+        Returns the front value of the queue
+        """
         return self._front.value
 
     def rear(self)-> Any:
+        """
+        Returns the rear value of the queue
+        """
         return self._rear.value
 
     def enqueue(self, value: Any)-> None:
+        """
+        appends a value to the queue from the rear
+        Args...
+            value-> the value to be added
+        Raises...
+            OverflowError:
+                queue overflow (only if you define _max) 
+         
+        """
         newNode = Node(value)
         if self._max and self._max == self._size:
             raise OverflowError("queue overflow")
@@ -58,6 +107,13 @@ class Queue:
             return
 
     def dequeue(self)-> Any:
+        """
+        removes a value from the from of the queue
+        Raises...
+            IndexError:
+                queue underflow
+        returns the value that was removed/dequeued 
+        """
         if self._size <= 0:
             raise IndexError("queue underflow")
         
@@ -75,6 +131,9 @@ class Queue:
             return dequeuedNode.value
 
     def clear(self)-> None:
+        """
+        clears all the nodes of the queue
+        """
         self._front = None
         self._rear = None
         self._size = 0
