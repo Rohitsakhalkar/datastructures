@@ -12,9 +12,39 @@ class BinarySearchTree:
 
     def __len__(self):
         return self._size
+
+    def __str__(self):
+        return f"[{",".join(str(value) for value in self)}]"
+
+    def __repr__(self):
+        return f"Binary Search Tree(Inorder value:[{",".join(str(value) for value in self)}])"
+
+    def __contains__(self, value):
+        return self.search(value)
+
+    def min(self):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
+        return self._min(self.root)
     
+    def _min(self,node):
+        if node.left is None:
+            return node.value
+        return self._min(node.left)
+
+    def max(self):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
+        return self._max(self.root)
+
+    def _max(self,node):
+        if node.right is None:
+            return node.value
+        return self._max(node.right)
 
     def height(self):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
         return self._height(self.root)
 
     def _height(self,node):
@@ -27,6 +57,8 @@ class BinarySearchTree:
         
 
     def search(self,value):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
         return self._search(self.root,value)
         
     def _search(self,node,value):
@@ -41,7 +73,9 @@ class BinarySearchTree:
         
 
     def inorder(self):
-       return self._inorder(self.root)
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
+        return self._inorder(self.root)
     
     def _inorder(self, node):
         if node is None:
@@ -51,6 +85,8 @@ class BinarySearchTree:
         yield from self._inorder(node.right)
 
     def postorder(self):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
         return self._postorder(self.root)
 
     def _postorder(self, node):
@@ -61,6 +97,8 @@ class BinarySearchTree:
         yield node.value
 
     def preorder(self):
+        if self.root is None:
+            raise IndexError("binary search tree is empty")
         return self._preorder(self.root)
 
     def _preorder(self,node):
@@ -95,6 +133,8 @@ class BinarySearchTree:
 
     
     def delete(self,value):
+            if self.root is None:
+                raise IndexError("binary tree is empty")
             parent = None
             result = self._delete_node(self.root,parent,value)
             if result is None:
@@ -136,4 +176,29 @@ class BinarySearchTree:
             return self._delete_node(node.right,parent,value)
         else:
             return parent, node
+
+    def clear(self):
+        self.root = None
+        self._size = 0
+
+    def is_empty(self):
+        return True if self.root else False
+
+    def bfs_traversal(self):
+        queue = []
+        queue.append(self.root)
+        while queue:
+            front = queue.pop(0)
+            yield front.value
+            if front.left:
+                queue.append(front.left)
+            if front.right:
+                queue.append(front.right)
+            
+        
+
+
+
+           
+
        

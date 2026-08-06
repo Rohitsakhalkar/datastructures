@@ -39,3 +39,6 @@ for i in bst.postorder():
 print("\npreorder",end=":")
 for i in bst.preorder():
     print(i,end=" ")
+print("\n",bst)
+for i in bst.bfs_traversal():
+    print(i)
