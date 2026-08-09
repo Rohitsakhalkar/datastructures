@@ -43,3 +43,9 @@ def test_str():
     s.push(30)
     assert str(s) == "[30,20,10]"
 
+def test_contains():
+    s = Stack()
+    s.push(10)
+    s.push(20)
+    assert 20 in s
+

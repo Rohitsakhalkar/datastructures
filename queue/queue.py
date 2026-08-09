@@ -52,6 +52,21 @@ class Queue:
         """
         return f"Queue(front to bottom)->[{",".join(str(value) for value in self)}]"
 
+    def __contains__(self, value: Any)-> bool:
+        """
+        returns True is value is present in the queue or False
+        Args...
+            value-> the value to be searched
+        """
+        if self._front is None:
+            raise IndexError("queue is empty")
+        current = self._front
+        while current:
+            if value == current.value: 
+                return True
+            current = current.next
+        return False
+    
     def is_empty(self)-> bool:
         """
         Returns a true if queue is empty

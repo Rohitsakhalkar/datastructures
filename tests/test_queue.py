@@ -67,3 +67,9 @@ def test_bool():
     q = Queue()
     q.enqueue(10) 
     assert True if q else False
+
+def test_contains():
+    q = Queue()
+    q.enqueue(10)
+    q.enqueue(20)
+    assert  20 in q

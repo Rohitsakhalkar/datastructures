@@ -24,6 +24,24 @@ class Stack:
             yield current.value
             current = current.previous
 
+    def __contains__(self, value: Any)-> bool:
+        """
+        returns bool True if the value if present in the stack
+        Args...
+            value-> the value to be searched
+        Raises...
+            IndexError:
+                if the stack is empty 
+        """
+        if self.top is None:
+            raise IndexError("stack is empty")
+        current = self.top
+        while current:
+            if value == current.value:
+                return True
+            current = current.previous
+        return False
+
     def is_empty(self)-> bool:
         """
         checks if stack is empty or not 
