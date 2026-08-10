@@ -32,6 +32,7 @@ While building these structures, I practiced:
 - Documentation
 
 ## Project Structure
+```
 DataStructure/
 │
 ├── DataStructure/
@@ -66,7 +67,7 @@ DataStructure/
 │
 ├── pyproject.toml
 └── README.md
-
+```
 The exact structure may change as the project grows.
 
 ## Singly Linked List
@@ -96,7 +97,7 @@ A linked list where each node maintains references to both the next and previous
 ## Stack
 
 A Last-In, First-Out (LIFO) data structure.
-
+```
 Push
  ↓
 ┌───┐
@@ -106,6 +107,7 @@ Push
 ├───┤
 │ A │
 └───┘
+```
 
 ### Typical operations:
 
@@ -117,7 +119,7 @@ Push
 ## Queue
 
 A First-In, First-Out (FIFO) data structure.
-
+```
 Front          Rear
   ↓             ↓
 ┌───┬───┬───┬───┐
@@ -128,6 +130,8 @@ Remove
 
                   ↑
                  Add
+
+```
 
 ### Typical operations:
 
