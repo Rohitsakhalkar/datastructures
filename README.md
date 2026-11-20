@@ -277,6 +277,28 @@ More data structures and algorithms will be added as I continue learning.
 - Git
 - GitHub
 
+## Implementations and Source Code
+
+Each data structure has its own module, with separate node and implementation files where applicable.
+
+| Data Structure | Implementation | Tests |
+|---|---|---|
+| Stack | [stack/stack.py](stack/stack.py) | [test_stack.py](tests/test_stack.py) |
+| Queue | [queue/queue.py](queue/queue.py) | [test_queue.py](tests/test_queue.py) |
+| Singly Linked List | [singlylinkedlist/singly_linked_list.py](singlylinkedlist/singly_linked_list.py) | [test_singlylinkedlist.py](tests/test_singlylinkedlist.py) |
+| Doubly Linked List | [doublylinkedlist/doubly_linked_list.py](doublylinkedlist/doubly_linked_list.py) | [test_doublylinkedlist.py](tests/test_doublylinkedlist.py) |
+| Binary Search Tree | [binarysearchtree/binary_search_tree.py](binarysearchtree/binary_search_tree.py) | [test_binarysearchtree.py](tests/test_binarysearchtree.py) |
+
+## Engineering Work
+
+- Implemented five fundamental data structures using Python classes and node-based structures.
+- Wrote core operations for insertion, deletion, searching, indexing, and traversal.
+- Used recursion to implement Binary Search Tree operations and tree traversals.
+- Implemented Python special methods such as `__len__`, `__iter__`, `__contains__`, and `__repr__`.
+- Added pytest test suites for the individual implementations.
+- Configured project packaging using `pyproject.toml` and setuptools.
+
+
 ## Note
 
 This project is primarily a learning project focused on understanding implementation details and software engineering practices.
